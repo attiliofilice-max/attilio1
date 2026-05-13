@@ -9,7 +9,7 @@ from sklearn.linear_model import LinearRegression
 # =========================
 # CONFIG
 # =========================
-API_TOKEN = "YOUR_API_KEY"
+API_TOKEN = "66b2ee90a79e96.06006024"
 
 
 # =========================
@@ -130,6 +130,10 @@ start_date = (
 
 data = get_daily_data(ticker, start_date, end_date)
 
+st.write("Ticker:", ticker)
+st.write("Rows downloaded:", len(data))
+st.write(data.head())
+
 if not data.empty:
     df = calculate_regression_channel(data)
     latest = df.iloc[-1]
@@ -149,6 +153,3 @@ if not data.empty:
 
 else:
     st.error("No data found.")
-
-
-API_TOKEN = "66b2ee90a79e96.06006024"
